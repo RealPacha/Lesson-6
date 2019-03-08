@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Korzina</title>
+	<script type="text/javascript" src="script1.js" defer></script>
+	<style type="text/css">
+		.red, .green, .yellow{
+			background: red;
+			width: 200px; 
+			height: 200px; 
+			display: inline-block; 
+			position: relative;
+		}
+
+		.green {
+			background: green;
+		}
+
+		.yellow {
+			background: yellow;
+		}
+
+		ul {
+			margin-top: 30px;
+		}
+
+		li {
+			list-style-type: none;
+			margin-top: 10px;
+		}
+
+		#buy1, #buy2, #buy3 {
+			position: absolute; 
+			margin-top: 200px;
+		} 
+
+		#buy4 {
+			margin-top: 20px;
+		}
+
+	</style>
+</head>
+<body>
+	<div class="red">
+		<input type="submit" name="buy" value="Купить" id="buy1"><b>Шапка</b><br><br><br><br>Цена: 500</div>
+	<div class="green">
+		<input type="submit" name="buy" value="Купить" id="buy2"><b>Сапоги</b><br><br><br><br>Цена: 700</div>
+	<div class="yellow">
+		<input type="submit" name="buy" value="Купить" id="buy3"><b>Куртка</b><br><br><br><br>Цена: 1000</div>
+
+		<ul id="_ul">
+			<li></li>
+		</ul>
+
+<input type="submit" name="sum" value="Сумма" id="buy4">
+
+
+<script type="text/javascript">
+	
+
+var knop1 = document.querySelector('#buy1');
+var knop2 = document.querySelector('#buy2');
+var knop3 = document.querySelector('#buy3');
+var knop4 = document.querySelector('#buy4');
+var ul = document.getElementById('_ul');
+var zakaz = [];
+var sum = 0;
+
+knop1.onclick = function () {
+	newLi = document.createElement('li');
+	newLi.innerHTML = "Шапка 500 рублей";
+	ul.appendChild(newLi);
+	zakaz.push('500');
+}
+
+knop2.onclick = function () {
+	newLi = document.createElement('li');
+	newLi.innerHTML = "Сапоги 700 рублей";
+	ul.appendChild(newLi);
+	zakaz.push('700');
+}
+
+knop3.onclick = function () {
+	newLi = document.createElement('li');
+	newLi.innerHTML = "Куртка 1000 рублей";
+	ul.appendChild(newLi);
+	zakaz.push('1000');
+}
+
+knop4.onclick = function () {
+	newLi = document.createElement('li');
+	ul.appendChild(newLi);
+	this.disabled = 'disabled';
+		for (let i = 0; i < zakaz.length; i++) {
+			sum = sum + parseInt(zakaz[i]);
+		}
+		newLi.innerHTML = "<b>Общая сумма заказа: </b>" + sum + "";
+}
+
+
+
+
+
+
+</script>
+</body>
+</html>
